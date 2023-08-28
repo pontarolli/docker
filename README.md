@@ -34,23 +34,12 @@ Stable released quarterly
 
 ```console
 # Install using the convenience script
-curl -fsSL get.docker.com -o get-docker.sh
-sh get-docker.sh
-
-# Evite ficar escrevendo sudo tova vez que for rodar um comando docker
-pi@raspberrypi:~/Public $ docker ps
-Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
-pi@raspberrypi:~/Public $ sudo docker ps
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+curl -fsSL get.docker.com -o get-docker.sh \
+sh get-docker.sh \
 # Add your user to the Docker group 
-sudo usermod -aG docker ${USER}
-# Restart the system and try again without sudo
-pi@raspberrypi:~ $ docker ps
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-
-# Test 
-docker version
-docker ps
+sudo usermod -aG docker ${USER} \
+# Restart the system and try
+docker version \
 ```
 
 

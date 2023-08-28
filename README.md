@@ -35,7 +35,7 @@ Stable released quarterly
 ```console
 # Install using the convenience script # Add your user to the Docker group # Restart the system and try `docker ps` without sudo
 curl -fsSL get.docker.com -o get-docker.sh \
-sh get-docker.sh \
+sudo sh get-docker.sh \
 sudo usermod -aG docker ${USER} \
 docker version \
 ```

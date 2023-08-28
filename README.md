@@ -25,7 +25,7 @@ All installations were made using ubuntu
 https://docs.docker.com/get-docker/
 
 Types
-Docker EE (Enterpraise Edition) Paid
+Docker EE (Enterpraise Edition) Paid  
 Docker CE (Community Edition) Free
 
 Version
@@ -33,41 +33,29 @@ Edge (beta) released monthly
 Stable released quarterly
 
 ```console
-# Install using the convenience script
+# Install using the convenience script # Add your user to the Docker group # Restart the system and try `docker ps` without sudo
 curl -fsSL get.docker.com -o get-docker.sh \
 sh get-docker.sh \
-# Add your user to the Docker group 
 sudo usermod -aG docker ${USER} \
-# Restart the system and try
 docker version \
 ```
-
-
-
-
-
 ### 2.2 Install Docker-machine
 https://docs.docker.com/machine/install-machine/
 ```
-# Download the Docker Machine binary and extract it to your PATH.
+# Download the Docker Machine binary, extract it to your PATH and test.
 base=https://github.com/docker/machine/releases/download/v0.16.0 &&
   curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
   sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
-  chmod +x /usr/local/bin/docker-machine
- # Test
- docker-machine version
+  chmod +x /usr/local/bin/docker-machine &&
+  docker-machine version
 ```
-
 ### 2.3 Install Docker-compose
 https://docs.docker.com/compose/install/
 ```
-# Download the current stable release of Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-# Apply executable permissions to the binary:
-sudo chmod +x /usr/local/bin/docker-compose
-# If the command docker-compose fails after installation, check your path. You can also create a symbolic link to /usr/bin or any other directory in your path.
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-# Test
+# Download the current stable release of Docker Compose # Apply executable permissions to the binary: # If the command docker-compose fails after installation, check your path. You can also create a symbolic link to /usr/bin or any other directory in your path.
+`sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose`. # Test
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&
+sudo chmod +x /usr/local/bin/docker-compose &&
 docker-compose --version
 ```
 

@@ -35,21 +35,14 @@ Stable released quarterly
 ```console
 # Install using the convenience script # Add your user to the Docker group # Restart the system and try `docker ps` without sudo
   
-curl -fsSL get.docker.com -o get-docker.sh \
-sudo sh get-docker.sh \
-sudo usermod -aG docker ${USER} \
-docker version \
+install-docker.sh
 ```
 ### 2.2 Install Docker-machine
 https://docs.docker.com/machine/install-machine/
 ```
 # Download the Docker Machine binary, extract it to your PATH and test.
 
-base=https://github.com/docker/machine/releases/download/v0.16.0 &&
-  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
-  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
-  chmod +x /usr/local/bin/docker-machine &&
-  docker-machine version
+install-docker-machine.sh
 ```
 ### 2.3 Install Docker-compose
 https://docs.docker.com/compose/install/
@@ -57,9 +50,7 @@ https://docs.docker.com/compose/install/
 # Download the current stable release of Docker Compose # Apply executable permissions to the binary: # If the command docker-compose fails after installation, check your path. You can also create a symbolic link to /usr/bin or any other directory in your path.
 `sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose`. # Test
 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&
-sudo chmod +x /usr/local/bin/docker-compose &&
-docker-compose --version
+
 ```
 
 # docker compose raspberry pi

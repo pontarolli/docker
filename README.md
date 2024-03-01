@@ -1175,7 +1175,8 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker.service
 curl -X GET http://localhost:2376/images/json
 
-
+# how do you disable auto-restart on a container?
+`docker update --restart=no my-container`
 
 # References
 https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/

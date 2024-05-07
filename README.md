@@ -1178,6 +1178,21 @@ curl -X GET http://localhost:2376/images/json
 # how do you disable auto-restart on a container?
 `docker update --restart=no my-container`
 
+# build and push for multiples platfomrs arch
+To build a multi-platform Docker image and push it to Docker Hub, use the following commands:
+```bash
+# Create a new Docker buildx builder instance and set it as the default
+docker buildx create --name mybuilder --use
+
+# Build the Docker image for multiple platforms and push it to Docker Hub
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t gasiepgodoy/moleculer:greeter-v1.0.0 --push .
+```
+Running the Service with Docker Compose: To deploy and run the service using Docker Compose, ensure you have a `docker-compose.yml` file configured correctly. Then, execute the following command:
+```bash
+# Start the services defined in the Docker Compose configuration
+docker compose up
+```
+
 # References
 https://blog.alexellis.io/getting-started-with-docker-on-raspberry-pi/
 https://blog.alexellis.io/5-things-docker-rpi/
